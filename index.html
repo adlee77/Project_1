@@ -23,14 +23,135 @@
 
     <div class= "outerContainer">
 
-        <div class="jumbotron text-center bg-success text-black">
+        <!-- Title of the page -->
+        <div class="jumbotron text-center bg-success text-black" id="pageTitle">
 			<h1>Dinner + Movie</h1>
-		</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div id="inputFormWrapper">
+                    <div id="movieFormWrapper">
+                        <h3>First, let's pick you a movie!</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Maximum rating you are comfortable with</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      G
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="PGRating" value="PG">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      PG
+                                    </label>
+                                  </div>
+                                  <div class="form-check disabled">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="PG-13Rating" value="PG-13" disabled>
+                                    <label class="form-check-label" for="exampleRadios3">
+                                      PG-13
+                                    </label>
+                                  </div>
+                                  <div class="form-check disabled">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="RRating" value="R" disabled>
+                                    <label class="form-check-label" for="exampleRadios3">
+                                      R
+                                    </label>
+                                  </div>
+                                  <div class="form-check disabled">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="NC-17Rating" value="NC-17" disabled>
+                                    <label class="form-check-label" for="exampleRadios3">
+                                      NC-17
+                                    </label>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">The genre you prefer</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Action</option>
+                                <option>Adventure</option>
+                                <option>Comedy</option>
+                                <option>Crime</option>
+                                <option>Drama</option>
+                                <option>Historical</option>
+                                <option>Horror</option>
+                                <option>Sci-Fi</option>
+                                <option>War</option>
+                                <option>Westerns</option>
+                                </select>
+                            </div>
+
+                        </form>
+                </div> <!-- end of movieFormWrapper -->
+
+                <div id="foodFormWrapper">
+                    <h3>Now, let's get you something to eat</h3>
+                    <form>
+                        <!-- zip code choices -->
+                        <div class="form-group">
+                            <label for="zipInput">Your zip code</label>
+                            <input type="text" class="form-control" id="zipInput" placeholder="12345">
+                        </div>
+                        <!-- delivery time choices -->
+                        <div class="form-group">
+                            <label for="timeRange">Maximum delivery time (min)</label>
+                            <div class="d-flex justify-content-center my-4">
+                                <div class="w-75">
+                                  <input type="range" class="custom-range" id="timeRange" min="0" max="120">
+                                </div>
+                                <span class="font-weight-bold text-primary ml-2 valueSpan2"></span>
+                              </div>
+                              <!-- ASSOCIATED JAVASCRIPT (source: https://mdbootstrap.com/docs/jquery/forms/slider/)
+                                    const $valueSpan = $('.valueSpan2');
+                                    const $value = $('#customRange11');
+                                    $valueSpan.html($value.val());
+                                    $value.on('input change', () => {
+                                        $valueSpan.html($value.val());
+                                    });                                     -->
+                        </div>
+                        <!-- price choices -->
+                        <div class="form-group">
+                            <label for="pricePoint">Maximum price</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="OneDollarSign" value="$" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                  $
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="TwoDollarSigns" value="$$">
+                                <label class="form-check-label" for="exampleRadios2">
+                                  $$
+                                </label>
+                              </div>
+                              <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="ThreeDollarSigns" value="$$$" disabled>
+                                <label class="form-check-label" for="exampleRadios3">
+                                  $$$
+                                </label>
+                              </div>
+                              <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="FourDollarSigns" value="$$$$" disabled>
+                                <label class="form-check-label" for="exampleRadios3">
+                                  $$$$
+                                </label>
+                              </div>
+
+                        </div>
+                    </form>
+
+                </div> <!-- end of foodFormWrapper -->
 
 
 
-
-
+                </div> <!-- end of inputFormWrapper -->
+            </div> <!-- end of col-8 -->
+            <div class="col-lg-2"></div>
+        </div> <!-- end of row -->
     </div>   <!-- end of outerContainer -->
     
 </body>
