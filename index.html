@@ -33,10 +33,10 @@
             <div class="col-lg-8">
                 <div id="inputFormWrapper">
                     <div id="movieFormWrapper">
-                        <h3>First, let's pick you a movie!</h3>
+                        <h3>First, let's pick you a movie</h3>
                         <form>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Maximum rating you are comfortable with</label>
+                                <label for="exampleFormControlSelect1">What is the maximum rating you are comfortable with?</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
                                     <label class="form-check-label" for="exampleRadios1">
@@ -49,28 +49,28 @@
                                       PG
                                     </label>
                                   </div>
-                                  <div class="form-check disabled">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="PG-13Rating" value="PG-13" disabled>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="PG-13Rating" value="PG-13">
                                     <label class="form-check-label" for="exampleRadios3">
                                       PG-13
                                     </label>
                                   </div>
-                                  <div class="form-check disabled">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="RRating" value="R" disabled>
-                                    <label class="form-check-label" for="exampleRadios3">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="RRating" value="R">
+                                    <label class="form-check-label" for="exampleRadios4">
                                       R
                                     </label>
                                   </div>
-                                  <div class="form-check disabled">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="NC-17Rating" value="NC-17" disabled>
-                                    <label class="form-check-label" for="exampleRadios3">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="NC-17Rating" value="NC-17">
+                                    <label class="form-check-label" for="exampleRadios5">
                                       NC-17
                                     </label>
                                   </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">The genre you prefer</label>
+                                <label for="exampleFormControlSelect1">What genre would you like to see?</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
                                 <option>Action</option>
                                 <option>Adventure</option>
@@ -93,12 +93,12 @@
                     <form>
                         <!-- zip code choices -->
                         <div class="form-group">
-                            <label for="zipInput">Your zip code</label>
+                            <label for="zipInput">What is your zip code?</label>
                             <input type="text" class="form-control" id="zipInput" placeholder="12345">
                         </div>
                         <!-- delivery time choices -->
                         <div class="form-group">
-                            <label for="timeRange">Maximum delivery time (min)</label>
+                            <label for="timeRange">How long are you willing to wait? (min)</label>
                             <div class="d-flex justify-content-center my-4">
                                 <div class="w-75">
                                   <input type="range" class="custom-range" id="timeRange" min="0" max="120">
@@ -116,7 +116,7 @@
                         </div>
                         <!-- price choices -->
                         <div class="form-group">
-                            <label for="pricePoint">Maximum price</label>
+                            <label for="pricePoint">What is the price category you are looking for?</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="OneDollarSign" value="$" checked>
                                 <label class="form-check-label" for="exampleRadios1">
@@ -129,14 +129,14 @@
                                   $$
                                 </label>
                               </div>
-                              <div class="form-check disabled">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="ThreeDollarSigns" value="$$$" disabled>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="ThreeDollarSigns" value="$$$">
                                 <label class="form-check-label" for="exampleRadios3">
                                   $$$
                                 </label>
                               </div>
-                              <div class="form-check disabled">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="FourDollarSigns" value="$$$$" disabled>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="FourDollarSigns" value="$$$$">
                                 <label class="form-check-label" for="exampleRadios3">
                                   $$$$
                                 </label>
@@ -147,7 +147,8 @@
 
                 </div> <!-- end of foodFormWrapper -->
 
-
+                <!-- submit button -->
+                <button type="button" class="btn btn-success">Submit</button>
 
                 </div> <!-- end of inputFormWrapper -->
             </div> <!-- end of col-8 -->
