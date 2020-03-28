@@ -33,6 +33,14 @@ var genres = {
 }
 
 
+// universal variables we will be using 
+var MaximumRating = "";
+var preferredGenre = [];
+var dietaryRestrictions = [];
+var maxPrepTime = 0;
+var preferredCuisine = [];
+
+
 $(".btn-success").on("click", function (event){
   event.preventDefault();
   var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=" + genres + "&certification_country=US&certification=" + certification + "&api_key=" + apiKey;
@@ -43,3 +51,21 @@ $(".btn-success").on("click", function (event){
   console.log(response);
 })
 })
+
+
+// function to make slider of prep time work
+const $valueSpan = $('.valueSpan2');
+    const $value = $('#timeRange');
+    $valueSpan.html($value.val());
+    $value.on('input change', () => {
+    $valueSpan.html($value.val());
+ });
+
+
+$("#submitButton").on("click", function() {
+  if ($('#actionAndAdventure').is(':checked')) {
+
+   }
+
+
+});
