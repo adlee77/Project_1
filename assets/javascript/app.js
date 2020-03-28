@@ -40,6 +40,42 @@ var dietaryRestrictions = [];
 var maxPrepTime = 0;
 var preferredCuisine = [];
 
+var movieObject = {
+  movie1Name: "",
+  movie1PosterURL: "",
+  movie2Name: "",
+  movie2PosterURL: "",
+  movie3Name: "",
+  movie3PosterURL: "",
+  movie4Name: "",
+  movie4PosterURL: "",
+  movie5Name: "",
+  movie5PosterURL: "",
+}
+
+
+var recipeObject = {
+  recipe1Name: "",
+  recipe1URL: "",
+  recipe1ImageURL: "",
+
+  recipe2Name: "",
+  recipe2URL: "",
+  recipe2ImageURL: "",
+
+  recipe3Name: "",
+  recipe3URL: "",
+  recipe3ImageURL: "",
+
+  recipe4Name: "",
+  recipe4URL: "",
+  recipe4ImageURL: "",
+
+  recipe5Name: "",
+  recipe5URL: "",
+  recipe5ImageURL: "",
+}
+
 
 $(".btn-success").on("click", function (event){
   event.preventDefault();
