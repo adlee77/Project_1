@@ -92,13 +92,29 @@
                     <h2>Now, let's get you something to eat</h2>
                     <form>
                         <!-- zip code choices -->
-                        <div class="form-group">
-                            <label for="zipInput">What is your zip code?</label>
-                            <input type="text" class="form-control" id="zipInput" placeholder="12345">
-                        </div>
+                          <div class="form-row align-items-center">
+                            <div class="col-auto my-1">
+                              <label class="mr-sm-2" for="inlineFormCustomSelect">Do you have any dietary restrictions?</label>
+                              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                <option selected>None</option>
+                                <option value="1">Vegan</option>
+                                <option value="2">Vegetarian</option>
+                                <option value="3">Dairy-Free</option>
+                                <option value="3">Gluten-Free</option>
+                                <option value="3">Peanut-Free</option>
+                                <option value="3">Treenut-Free</option>
+                                <option value="3">Soy-Free</option>
+                              </select>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                <label class="custom-control-label" for="customControlAutosizing">Remember my preference</label>
+                              </div>
+                            </div>
                         <!-- delivery time choices -->
                         <div class="form-group">
-                            <label for="timeRange">How long are you willing to wait? (min)</label>
+                            <label for="timeRange">How long are you willing to cook for? (min)</label>
                             <div class="d-flex justify-content-center my-4">
                                 <div class="w-75">
                                   <input type="range" class="custom-range" id="timeRange" min="0" max="120">
@@ -116,31 +132,55 @@
                         </div>
                         <!-- price choices -->
                         <div class="form-group">
-                            <label for="pricePoint">What is the price category you are looking for?</label>
+                            <label for="pricePoint">What cuisine are you in the mood for?</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="OneDollarSign" value="$" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                  $
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="TwoDollarSigns" value="$$">
-                                <label class="form-check-label" for="exampleRadios2">
-                                  $$
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="ThreeDollarSigns" value="$$$">
-                                <label class="form-check-label" for="exampleRadios3">
-                                  $$$
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="FourDollarSigns" value="$$$$">
-                                <label class="form-check-label" for="exampleRadios3">
-                                  $$$$
-                                </label>
-                              </div>
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                              <label class="form-check-label" for="defaultCheck1">
+                                American
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                              <label class="form-check-label" for="defaultCheck2">
+                                Asian
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                              <label class="form-check-label" for="defaultCheck3">
+                                French
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                              <label class="form-check-label" for="defaultCheck4">
+                                Indian
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                              <label class="form-check-label" for="defaultCheck5">
+                                Italian
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                              <label class="form-check-label" for="defaultCheck6">
+                                Mediterranean
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                              <label class="form-check-label" for="defaultCheck7">
+                                Mexican
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
+                              <label class="form-check-label" for="defaultCheck8">
+                                Middle Eastern
+                              </label>
+                            </div>
 
                         </div>
                     </form>
