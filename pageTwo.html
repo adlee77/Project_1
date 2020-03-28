@@ -7,10 +7,15 @@
     <title>Dinner + Movie</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- JavaScript -->
@@ -18,89 +23,96 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-    <!-- INSERT FIREBASE LINK AS NEEDED -->
+
+
 
 </head>
 
 <body>
-    <div class="outerContainer">
+    <div class="outerContainer center-align">
         <div class="jumbotron text-center bg-success text-black" id="pageTitle">
             <h1><i class="fa fa-glass"></i> Dinner + Movie <i class="fa fa-film"></i></h1>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12 center-align">
                 <h2>Here's what we picked for you:</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12 center-align">
                 <h3>Your movie:</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 text-center">(carefully curated just for you)</div>
+            <div class="col-lg-12 center-align">(carefully curated just for you)</div>
         </div>
-        <div class="row">
-            <!-- This is where the carousel of movies will go-->
-            <div class="col-2 text-center" id="movieSelection">
-                <table>
-                    <thead>
-                        <tbody>
-                            <tr>
-                                <td><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></td>
-                                <td><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></td>
-                                <td><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></td>
-                                <td><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></td>
-                                <td><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></td>
-                            </tr>
-                        </tbody>
-                    </thead>
-                </table>
+            <div class="carousel">
+                <a class="carousel-item" href="#one!"><img
+                        src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></a>
+                <a class="carousel-item" href="#two!"><img
+                        src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></a>
+                <a class="carousel-item" href="#three!"><img
+                        src="https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png"></a>
             </div>
-        </div>
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h3>Hungry Yet?</h3>
+            <div class="col-lg-12 center-align">
+                <h3>Let's Get Cookin'</h3>
             </div>
         </div>
         <div class="row">
             <!-- This is where the food carousel will go -->
-            <div class="col text-center" id="foodSelection"><table>
-                <thead>
+            <div class="col center-align" id="foodSelection">
+                <table>
+                    <thead>
                     <tbody>
                         <tr>
-                            <td><img src="https://blogs.biomedcentral.com/on-medicine/wp-content/uploads/sites/6/2019/09/iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg"></td>
-                            <td><img src="https://blogs.biomedcentral.com/on-medicine/wp-content/uploads/sites/6/2019/09/iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg"></td>
+                            <td><img
+                                    src="https://blogs.biomedcentral.com/on-medicine/wp-content/uploads/sites/6/2019/09/iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg">
+                            </td>
+                            <td><img
+                                    src="https://blogs.biomedcentral.com/on-medicine/wp-content/uploads/sites/6/2019/09/iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg">
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
                     </tbody>
-                </thead>
-            </table>
+                    </thead>
+                </table>
             </div>
         </div>
-        <br>
         <div class="row">
             <!-- We can replace this with a button instead later -->
-            <div class="col text-center"><a href=index.html>start over</a></div>
+            <div class="col center-align"><a href=index.html>start over</a></div>
         </div>
         <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Liked what we picked? Let us know!</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
+            <div class="input-field col s12">
+              <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+              <label for="textarea2">Liked what we picked? Leave us a message!</label>
             </div>
-        </div>
-        <div class="row">
-            <div class="col"><button type="button" class="btn btn-primary">Submit</button></div>
-        </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+          <div class="col">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+    </div>      
         <br>
     </div>
-
+    <footer><img
+            src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg">
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems);
+        });
+    </script>
 
 </body>
 
