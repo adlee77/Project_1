@@ -34,7 +34,7 @@ var genres = {
 
 
 // universal variables we will be using 
-var MaximumRating = "";
+var ratingsToBeIncluded = [];
 var preferredGenre = [];
 var dietaryRestrictions = [];
 var maxPrepTime = 0;
