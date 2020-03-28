@@ -34,7 +34,7 @@ var genres = {
 
 
 // universal variables we will be using 
-var MaximumRating = "";
+var ratingsToBeIncluded = [];
 var preferredGenre = [];
 var dietaryRestrictions = [];
 var maxPrepTime = 0;
@@ -64,8 +64,33 @@ const $valueSpan = $('.valueSpan2');
 
 $("#submitButton").on("click", function() {
   if ($('#actionAndAdventure').is(':checked')) {
-
+      preferredGenre.push(genres[0]);
+      preferredGenre.push(genres[1]);
+   }
+   if ($('#animation').is(':checked')) {
+      preferredGenre.push(genres[2]);
    }
 
 
+findMovies();
+findRecipes();
+displayMovies();
+displayRecipes();
 });
+
+
+function findMovies(){
+
+}
+
+function displayMovies(){
+
+}
+
+function findRecipes(){
+
+}
+
+function displayRecipes(){
+
+}
