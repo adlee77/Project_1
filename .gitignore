@@ -3,7 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=macos,windows
 
 # API Keys
-
+api-keys.js
 
 ### macOS ###
 # General
