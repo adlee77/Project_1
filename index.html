@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinner + Movie</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+            crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- JavaScript -->
+    <script src="assets/javascript/app.js" type="text/javascript"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+    <!-- INSERT FIREBASE LINK AS NEEDED -->
+
+</head>
+<body>
+
+    <div class= "outerContainer">
+
+        <!-- Title of the page -->
+        <div class="jumbotron text-center bg-success text-black" id="pageTitle">
+			<h1>Dinner + Movie</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div id="inputFormWrapper">
+                    <div id="movieFormWrapper">
+                        <h2>First, let's pick you a movie</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">What is the maximum rating you are comfortable with?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      G
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="PGRating" value="PG">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      PG
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="PG-13Rating" value="PG-13">
+                                    <label class="form-check-label" for="exampleRadios3">
+                                      PG-13
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="RRating" value="R">
+                                    <label class="form-check-label" for="exampleRadios4">
+                                      R
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="NC-17Rating" value="NC-17">
+                                    <label class="form-check-label" for="exampleRadios5">
+                                      NC-17
+                                    </label>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">What genre would you like to see?</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Action</option>
+                                <option>Adventure</option>
+                                <option>Comedy</option>
+                                <option>Crime</option>
+                                <option>Drama</option>
+                                <option>Historical</option>
+                                <option>Horror</option>
+                                <option>Sci-Fi</option>
+                                <option>War</option>
+                                <option>Westerns</option>
+                                </select>
+                            </div>
+
+                        </form>
+                </div> <!-- end of movieFormWrapper -->
+
+                <div id="foodFormWrapper">
+                    <h2>Now, let's get you something to eat</h2>
+                    <form>
+                        <!-- zip code choices -->
+                        <div class="form-group">
+                            <label for="zipInput">What is your zip code?</label>
+                            <input type="text" class="form-control" id="zipInput" placeholder="12345">
+                        </div>
+                        <!-- delivery time choices -->
+                        <div class="form-group">
+                            <label for="timeRange">How long are you willing to wait? (min)</label>
+                            <div class="d-flex justify-content-center my-4">
+                                <div class="w-75">
+                                  <input type="range" class="custom-range" id="timeRange" min="0" max="120">
+                                </div>
+                                <span class="font-weight-bold text-primary ml-2 valueSpan2"></span>
+                              </div>
+                              
+                              <!-- ASSOCIATED JAVASCRIPT (source: https://mdbootstrap.com/docs/jquery/forms/slider/)
+                                    const $valueSpan = $('.valueSpan2');
+                                    const $value = $('#timeRange');
+                                    $valueSpan.html($value.val());
+                                    $value.on('input change', () => {
+                                        $valueSpan.html($value.val());
+                                    });                                     -->
+                        </div>
+                        <!-- price choices -->
+                        <div class="form-group">
+                            <label for="pricePoint">What is the price category you are looking for?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="OneDollarSign" value="$" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                  $
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="TwoDollarSigns" value="$$">
+                                <label class="form-check-label" for="exampleRadios2">
+                                  $$
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="ThreeDollarSigns" value="$$$">
+                                <label class="form-check-label" for="exampleRadios3">
+                                  $$$
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="FourDollarSigns" value="$$$$">
+                                <label class="form-check-label" for="exampleRadios3">
+                                  $$$$
+                                </label>
+                              </div>
+
+                        </div>
+                    </form>
+
+                </div> <!-- end of foodFormWrapper -->
+
+                <!-- submit button -->
+                <button type="button" class="btn btn-success">See Results</button>
+
+                </div> <!-- end of inputFormWrapper -->
+            </div> <!-- end of col-8 -->
+            <div class="col-lg-3"></div>
+        </div> <!-- end of row -->
+    </div>   <!-- end of outerContainer -->
+    
+</body>
+</html>
