@@ -1,4 +1,19 @@
 $(document).ready(function () {
+
+var containerOne = $(".container-one")
+var containerTwo = $(".container-two");
+containerTwo.hide();
+
+$(".btn-success").on("click", function(){
+containerOne.hide();
+containerTwo.show();
+});
+
+$("#startButton").on("click", function(){
+  containerOne.show();
+  containerTwo.hide();
+  });
+
   console.log("js running");
 
   var apiKey = "7e843602b804ea7449775e2616d01fe2";
