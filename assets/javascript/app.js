@@ -334,13 +334,15 @@ $("#startButton").on("click", function(){
         var recipeTitle = results[i].recipe.label;
         console.log(recipeTitle);
         var recipeImg = results[i].recipe.image;
-        var recipeLink = results[i].recipe.url;
+        
 
         var newDiv = $("<div>");
         newDiv.addClass("recipes");
         var image = $("<img>").addClass("recipe-images");
         var h1 = $("<h1>").text(recipeTitle);
-        var link = $("<a>").attr("href", recipeLink);
+        var link = $("<a>").attr("href", results[i].recipe.url);
+        link.text(results[i].recipe.url);
+        console.log(link);
 
         newDiv.append(h1, image, link);
         image.attr("src", recipeImg);
