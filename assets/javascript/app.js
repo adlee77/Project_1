@@ -48,14 +48,33 @@ $("#startButton").on("click", function(){
   FormStuff.init();
   console.log("restrictions dropdown loaded");
 
-  var certification = {
-    // G: G,
-    // PG: PG,
-    // PG13: PG-13,
-    // R: R,
-    // NC17: NC-17,
-    // noRating: NR,
+
+//   <div class="form-check">
+//     <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
+//  <label class="form-check-label" for="exampleRadios1">G</label>
+//      </div>
+
+  function generateRatings (){
+    var certification = ["G","PG", "PG-13","R", "NC-17"];
+    
+    for (var i = 0; i< certification.length; i++){
+      var divider =   "<div class=\"form-check\">";
+      divider +=      `<input class="form-check-input" type="radio" name="ratingInput" id="${certification[i]}Rating" value="${certification[i]}"`;
+      if (i===0){ divider += ` checked`; }
+      divider +=      `>`;
+      divider +=      `<label class="form-check-label" for="${certification[i]}Rating">${certification[i]}</label>`;
+      divider +=      `</div>`;
+
+      $("#rating-input").append(divider);
+    }
   }
+  generateRatings();
+
+  function generateGenres(){}
+
+  function generateDietaryRestrictions(){}
+
+
   var genre;
   var poster;
   var movie;
@@ -127,7 +146,7 @@ $("#startButton").on("click", function(){
       ratingsToBeIncluded = "R";
     }
     else {
-      ratingsToBeIncluded.push = "NC-17";
+      ratingsToBeIncluded = "NC-17";
     }
     console.log(ratingsToBeIncluded);
   }
