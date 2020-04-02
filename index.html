@@ -61,10 +61,10 @@
                 <p>Do you have any dietary restrictions?</p>
 
                 <input type="radio" name="choice-diet" id="dietaryRestrictionsYes" required>
-                <label for="dietaryRestrictionsYes">Yes</label>
+                <label class="diet" for="dietaryRestrictionsYes">Yes</label>
 
                 <input type="radio" name="choice-diet" id="dietaryRestrictionsNo" required>
-                <label for="dietaryRestrictionsNo">No</label>
+                <label class="diet" for="dietaryRestrictionsNo">No</label>
 
 
 
@@ -109,7 +109,7 @@
 
               <!-- delivery time choices -->
               <div class="form-group">
-                <label for="timeRange">How long are you willing to cook for? (min)</label>
+                <label id="time-range" for="timeRange">How long are you willing to cook for? (min)</label>
                 <div class="d-flex justify-content-center my-4">
                   <div class="w-75">
                     <input type="range" class="custom-range" id="timeRange" min="0" max="120">
@@ -127,8 +127,8 @@
 
           <form>
             <div class="form-group">
-              <label for="ingredient">What's one item you have in your fridge right now?</label>
-              <input type="text" class="form-control" id="ingredient" placeholder="chicken">
+              <label id="food" for="ingredient">What's one item you have in your fridge right now?</label>
+              <input type="text" class="form-control" id="ingredient" placeholder="nothing :(">
             </div>
           </form>
         </div> <!-- end of foodFormWrapper -->
@@ -155,7 +155,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-12 text-center">(carefully curated just for you)</div>
+    <div class="col-lg-12 text-center" id="extra">(carefully curated just for you)</div>
 </div>
 
  <!-- Demo styles -->
@@ -234,7 +234,6 @@
 <div class="row">
     <div class="col text-center" id="foodSelection">
         <table>
-            <thead>
             <tbody>
                 <tr>
                     <td><img
@@ -248,7 +247,6 @@
                     <td></td>
                 </tr>
             </tbody>
-            </thead>
         </table>
     </div>
 </div>

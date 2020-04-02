@@ -1,4 +1,42 @@
+.jumbotron {
+  background-color: #5D5C61;
+  color: white;
+  margin-bottom: 0px;
+  border-bottom: solid;
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+}
+.container {
+  background-color: transparent;
+}
+.container-one {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+}
+
+h2, h3, #time-range, #extra, .diet, .valueSpan2, #food {
+  color: white;
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+}
+p {
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  color: white;
+}
+.btn {
+  background-color: #5D5C61;
+  border-color: #5D5C61;
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+}
+.btn:hover {
+  background-color: #B1A296;
+  border-color:  #5D5C61;
+}
+.btn:active {
+  background-color: #B1A296;
+  border-color:  #5D5C61;
+}
 .main-container {
+  background-image: linear-gradient(to bottom right, rgb(115, 146, 174), #557A95, #85aebd);
   min-height: 100vh; /* will cover the 100% of viewport */
   overflow: hidden;
   display: block;
@@ -9,5 +47,5 @@
   position: absolute;
   bottom: 0;
   width: 25%;
-  left: 30%;
+  left: 38%;
  }
