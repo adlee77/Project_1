@@ -127,7 +127,7 @@ $("#startButton").on("click", function(){
       ratingsToBeIncluded = "R";
     }
     else {
-      ratingsToBeIncluded.push = "NC-17";
+      ratingsToBeIncluded = "NC-17";
     }
     console.log(ratingsToBeIncluded);
   }
