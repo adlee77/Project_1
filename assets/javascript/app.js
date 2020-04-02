@@ -92,55 +92,49 @@ $("#startButton").on("click", function(){
   var maxPrepTime = 0;
   var preferredCuisine = [];
   var ingredient = "";
-  var healthOptions = [
-    {
-      api: "Dairy",
-      user: "dairy-free"
-    },
-    {
-      api: "Kosher",
-      user: "kosher"
-    },
-    {
-      api: "Gluten",
-      user: "gluten-free"
-    },
-    {
-      api: "Peanuts",
-      user: "peanut-free"
-    },
-    {
-      api: "Shellfish",
-      user: "shellfish-free"
-    },
-    {
-      api: "Soy",
-      user: "soy-free"
-    },
-    {
-      api: "Tree Nuts",
-      user: "tree-nut-free"
-    },
-    {
-      api: "Sugar-conscious",
-      user: "sugar-conscious"
-    },
-    {
-      api: "Vegan",
-      user: "vegan"
-    },
-    {
-      api: "Vegetarian",
-      user: "vegetarian"
-    }
-  ]
+  // var healthOptions = [
+  //   {
+  //     api: "Dairy",
+  //     user: "dairy-free"
+  //   },
+  //   {
+  //     api: "Kosher",
+  //     user: "kosher"
+  //   },
+  //   {
+  //     api: "Gluten",
+  //     user: "gluten-free"
+  //   },
+  //   {
+  //     api: "Peanuts",
+  //     user: "peanut-free"
+  //   },
+  //   {
+  //     api: "Shellfish",
+  //     user: "shellfish-free"
+  //   },
+  //   {
+  //     api: "Soy",
+  //     user: "soy-free"
+  //   },
+  //   {
+  //     api: "Tree Nuts",
+  //     user: "tree-nut-free"
+  //   },
+  //   {
+  //     api: "Sugar-conscious",
+  //     user: "sugar-conscious"
+  //   },
+  //   {
+  //     api: "Vegan",
+  //     user: "vegan"
+  //   },
+  //   {
+  //     api: "Vegetarian",
+  //     user: "vegetarian"
+  //   }
+  // ]
 
-  $("input[type='radio'], input[type='checkbox]").on("change", function () {
-    healthOptions.forEach(option=>{
-     const newButton= $(`<input type='checkbox' name=${option.user}/><label for=${option.user}>${option.user}</label>`)
-     $("dietary-form").append(newButton)
-  })
-}); 
 
 
   $("#submitButton").on("click", function () {
@@ -339,20 +333,44 @@ $("#startButton").on("click", function(){
     });
   }
 
+  // TODO: allow values to be string OR array
+  function buildParameter (param, values) {
+    var queryFragment = "";
+    // each loop, append a fragment of the fragment
+    values.forEach(function (value){
+      // e.g health, [peanut-free, tree-nut-free]
+      // 1st iteration should add '&health=peanut-free
+      queryFragment += `&${param}=${value}`;
+    })
+    return queryFragment;
+  }
+
   function findRecipes() {
-    ingredient = "chicken"
-    preferredCuisine =//"&cuisineType=Chinese";
-    dietaryRestrictions = "&health=peanut-free&health=tree-nut-free";
-    maxPrepTime = "120";
+    // var ingredient = "chicken"
+    // var preferredCuisine = ["chinese"];
+    // var dietaryRestrictions = ["tree-nut-free", "peanut-free"];
+    // var maxPrepTime = "120";
 
 
-    //TODO make enumerable function for health&cuisineType
-    var baseURL = `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${ingredient}${dietaryRestrictions}&time=${maxPrepTime}&app_id=${recipeID}&app_key=${recipeAPIKey}`;
+    // given a list of [{parameter, values}]
+    // iterate over the list, appending to baseURL
+    // q=${ingredient}${buildParameter("health",dietaryRestrictions)}&time=${maxPrepTime}
+    var urlComponents = [
+      { param: "q", value: [ingredient] },
+      { param: "health", value: dietaryRestrictions },
+      //{ param: "cuisineType", value: preferredCuisine },
+      { param: "time", value: [maxPrepTime] }
+    ]
+    var baseURL = `https://api.edamam.com/search?app_id=${recipeID}&app_key=${recipeAPIKey}`;
+    urlComponents.forEach(function (component) {
+      baseURL += buildParameter(component.param, component.value);
+    })
 
     console.log(baseURL);
     $.ajax({
       url: baseURL,
-      method: "GET"
+      method: "GET",
+      dataType: "json"
     }).then(function (response) {
       var results = response.hits;
       console.log(results);
@@ -362,31 +380,28 @@ $("#startButton").on("click", function(){
         console.log(recipeTitle);
         var recipeImg = results[i].recipe.image;
         
+        var rowInfo = $("<tr>");
+        var td = $("<td>");
+        td.text(h1);
 
-        var newDiv = $("<div>");
-        newDiv.addClass("recipes");
+
+        // var newDiv = $("<div>");
+        // newDiv.addClass("recipes");
         var image = $("<img>").addClass("recipe-images");
         var h1 = $("<h1>").text(recipeTitle);
         var link = $("<a>").attr("href", results[i].recipe.url);
         link.text(results[i].recipe.url);
-        console.log(link);
+        // console.log(link);
 
-        newDiv.append(h1, image, link);
+        // newDiv.append(h1, image, link);
         image.attr("src", recipeImg);
 
-        $("#results").append(newDiv);
+        $("#foods").append('<tr><td id="recipes">' + h1 + '<td>' + image + '<td>' + link + '</td></tr>');
 
         
 
       }
     })
-
-    // Variables for storing user selections
-    // var dietPreference = "&health=" + $("#diet").val();
-    // console.log(dietPreference);
-    // var cuisineType = "&cuisineType=" + $("#cuisine").val();
-    // console.log(cuisineType);
-    // var ingredient = "q=" + $("#ingredient").val().trim();
 
     
   }
