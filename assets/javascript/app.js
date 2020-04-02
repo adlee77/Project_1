@@ -3,6 +3,9 @@ $(document).ready(function () {
 
   var apiKey = "7e843602b804ea7449775e2616d01fe2";
 
+  var recipeAPIKey = "3bf128271c09f258d82a4a064242f753";
+  var recipeID = "d25a4b08";
+
   // function to make slider of prep time work
   const $valueSpan = $(".valueSpan2");
   const $value = $("#timeRange");
@@ -74,13 +77,61 @@ $(document).ready(function () {
   var maxPrepTime = 0;
   var preferredCuisine = [];
   var ingredient = "";
+  var healthOptions = [
+    {
+      api: "Dairy",
+      user: "dairy-free"
+    },
+    {
+      api: "Kosher",
+      user: "kosher"
+    },
+    {
+      api: "Gluten",
+      user: "gluten-free"
+    },
+    {
+      api: "Peanuts",
+      user: "peanut-free"
+    },
+    {
+      api: "Shellfish",
+      user: "shellfish-free"
+    },
+    {
+      api: "Soy",
+      user: "soy-free"
+    },
+    {
+      api: "Tree Nuts",
+      user: "tree-nut-free"
+    },
+    {
+      api: "Sugar-conscious",
+      user: "sugar-conscious"
+    },
+    {
+      api: "Vegan",
+      user: "vegan"
+    },
+    {
+      api: "Vegetarian",
+      user: "vegetarian"
+    }
+  ]
 
+  $("input[type='radio'], input[type='checkbox]").on("change", function () {
+    healthOptions.forEach(option=>{
+     const newButton= $(`<input type='checkbox' name=${option.user}/><label for=${option.user}>${option.user}</label>`)
+     $("dietary-form").append(newButton)
+  })
+}); 
 
 
   $("#submitButton").on("click", function () {
     console.log("on click function");
     //ratings
-    pushRatings();
+   // pushRatings();
     //genres
     pushMovieGenres();
     //restrictions
@@ -97,7 +148,7 @@ $(document).ready(function () {
     findRecipes()
   });
 
-  function pushRatings() {
+  /*function pushRatings() {
     console.log("pushRatings Function");
     if ($('#GRating').is(':checked')) {
       ratingsToBeIncluded = "G";
@@ -112,10 +163,10 @@ $(document).ready(function () {
       ratingsToBeIncluded = "R";
     }
     else {
-      ratingsToBeIncluded.push = "NC-17";
+      ratingsToBeIncluded.push("NC-17");
     }
     console.log(ratingsToBeIncluded);
-  }
+  }*/
 
   function pushMovieGenres() {
     console.log("pushMovies Function");
@@ -247,7 +298,53 @@ $(document).ready(function () {
   }
 
   function findRecipes() {
+    ingredient = "chicken"
+    preferredCuisine =//"&cuisineType=Chinese";
+    dietaryRestrictions = "&health=peanut-free&health=tree-nut-free";
+    maxPrepTime = "120";
 
+
+    //TODO make enumerable function for health&cuisineType
+    var baseURL = `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${ingredient}${dietaryRestrictions}&time=${maxPrepTime}&app_id=${recipeID}&app_key=${recipeAPIKey}`;
+
+    console.log(baseURL);
+    $.ajax({
+      url: baseURL,
+      method: "GET"
+    }).then(function (response) {
+      var results = response.hits;
+      console.log(results);
+
+      for (var i = 0; i < results.length; i++) {
+        var recipeTitle = results[i].recipe.label;
+        console.log(recipeTitle);
+        var recipeImg = results[i].recipe.image;
+        var recipeLink = results[i].recipe.url;
+
+        var newDiv = $("<div>");
+        newDiv.addClass("recipes");
+        var image = $("<img>").addClass("recipe-images");
+        var h1 = $("<h1>").text(recipeTitle);
+        var link = $("<a>").attr("href", recipeLink);
+
+        newDiv.append(h1, image, link);
+        image.attr("src", recipeImg);
+
+        $("#results").append(newDiv);
+
+        
+
+      }
+    })
+
+    // Variables for storing user selections
+    // var dietPreference = "&health=" + $("#diet").val();
+    // console.log(dietPreference);
+    // var cuisineType = "&cuisineType=" + $("#cuisine").val();
+    // console.log(cuisineType);
+    // var ingredient = "q=" + $("#ingredient").val().trim();
+
+    
   }
 
 
