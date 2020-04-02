@@ -299,17 +299,44 @@ $("#startButton").on("click", function(){
   }
 
 
+  function initializeCarousel(){
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  }
+
   function findMovies() {
-    var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=" + preferredGenre + "&certification_country=US&certification=" + ratingsToBeIncluded + "&api_key=" + apiKey;
+    // var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=" + preferredGenre + "&certification_country=US&certification=" + ratingsToBeIncluded + "&api_key=" + apiKey;
+    var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=35&certification_country=US&certification=R&api_key=" + apiKey;
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
-      console.log(response);
+      var results = response.results;
+
+      for (var i = 0; i < 5; i++) {
+        var posterImage = $("<div>").addClass("swiper-slide");
+        posterImage.attr("style", `background-image:url(${"http://image.tmdb.org/t/p/w500" + response.results[i].poster_path})`);
+        $("#posterContainer").append(posterImage);
+        console.log(response);
+        console.log(results[i].poster_path);
+      }
+     
+      initializeCarousel();
     });
-
-
-
   }
 
   function findRecipes() {
