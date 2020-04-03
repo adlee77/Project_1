@@ -74,7 +74,7 @@ $(document).ready(function () {
 
     
   function generateRatings (){
-    var certification = ["G","PG", "PG-13","R", "NC-17"];
+    var certification = ["G","PG", "PG-13","R"];
     
     for (var i = 0; i< certification.length; i++){
       var divider =   "<div class=\"form-check\">";
