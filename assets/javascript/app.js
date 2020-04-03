@@ -120,7 +120,7 @@ $(document).ready(function () {
     
     for (var i = 0; i< genreNames.length; i++){
       var divider =   "<div class=\"form-check\">";
-      divider +=      `<input class="form-check-input" type="checkbox" name="genreInput" id="${genreNames[i]}Rating" value="${associatedIDs[i]}"`;
+      divider +=      `<input class="form-check-input" type="checkbox" style=“margin: 10px 0px 15px 0px” name="genreInput" id="${genreNames[i]}Rating" value="${associatedIDs[i]}"`;
       divider +=      `>`;
       divider +=      `<label class="form-check-label" for="${associatedIDs[i]}Rating">${genreNames[i]}</label>`;
       divider +=      `</div>`;
@@ -422,7 +422,7 @@ var cuisines = ["American", "Asian", "French", "Indian",
         image.attr("src", recipeImg);
 
         // add CSS styling
-        resultRow.append('<td class="recipe"><h1>' + recipeTitle + '</h1>' + '<img src=' + recipeImg + '><div><a href="' + results[i].recipe.url + '">Click here for recipe!</a></div></td>');
+        resultRow.append('<td class="recipe"><p>' + recipeTitle + '</p>' + '<img src=' + recipeImg + '><div><a id="recipes" href="' + results[i].recipe.url + '">Click here for recipe!</a></div></td>');
 
 
 
