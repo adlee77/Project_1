@@ -25,19 +25,19 @@ $(document).ready(function () {
     containerTwo.hide();
   });
 
-  // dietary Restriction form call listener
-  // $(".dietRestriction").on("click", function (event){
+  //dietary Restriction form call listener
+  $(".dietRestriction").on("click", function (event){
     
-  //   var radioValue = $("input[name='choice-diet']:checked").val();
-  //   console.log(radioValue);
-  //   if (radioValue === "true") {
-  //     dietaryRestriction = true;
-  //     generateDietaryRestrictions()
-  //   } else {
-  //     dietaryRestriction = false;
-  //     $("#dietary-form").empty();
-  //   }
-  // })
+    var radioValue = $("input[name='choice-diet']:checked").val();
+    console.log(radioValue);
+    if (radioValue === "true") {
+      dietaryRestriction = true;
+      generateDietaryRestrictions()
+    } else {
+      dietaryRestriction = false;
+      $("#dietary-form").empty();
+    }
+  })
 
   console.log("js running");
 
@@ -147,14 +147,13 @@ $(document).ready(function () {
     
     for (var i = 0; i< restrictions.length; i++){
       var divider =   "<div class=\"form-check\">";
-      divider +=      `<input class="form-check-input" type="checkbox" name="restrictionInput" id="${restrictions[i]}Rating" value="${restrictions[i]}">`;
+      divider +=      `<input class="form-check-input" type="checkbox" class="reveal-if-active" name="restrictionInput" id="${restrictions[i]}Rating" value="${restrictions[i]}">`;
       divider +=      `<label class="form-check-label" for="${restrictions[i]}Rating">${restrictions[i]}</label>`;
       divider +=      `</div>`;
 
       $("#dietary-form").append(divider);
     }
   }
-generateDietaryRestrictions();
 
   
 var cuisines = ["American", "Asian", "French", "Indian",
