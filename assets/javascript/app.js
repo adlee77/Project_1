@@ -1,5 +1,7 @@
 $(document).ready(function () {
-
+  var movieAPIkey = "7e843602b804ea7449775e2616d01fe2";
+  var recipeAPIKey =  "3bf128271c09f258d82a4a064242f753";
+  var recipeID= "d25a4b08";
    // universal variables we will be using 
    var ratingsToBeIncluded;
    var preferredGenre = [];
@@ -18,12 +20,14 @@ $(document).ready(function () {
   $(".btn-success").on("click", function () {
     containerOne.hide();
     containerTwo.show();
+   
   });
 
   $("#startButton").on("click", function () {
     containerOne.show();
     containerTwo.hide();
   });
+
 
   //dietary Restriction form call listener
   $(".dietRestriction").on("click", function (event){
