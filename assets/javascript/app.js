@@ -25,26 +25,21 @@ $(document).ready(function () {
     containerTwo.hide();
   });
 
-  // dietary Restriction form call listener
-  // $(".dietRestriction").on("click", function (event){
+  //dietary Restriction form call listener
+  $(".dietRestriction").on("click", function (event){
     
-  //   var radioValue = $("input[name='choice-diet']:checked").val();
-  //   console.log(radioValue);
-  //   if (radioValue === "true") {
-  //     dietaryRestriction = true;
-  //     generateDietaryRestrictions()
-  //   } else {
-  //     dietaryRestriction = false;
-  //     $("#dietary-form").empty();
-  //   }
-  // })
+    var radioValue = $("input[name='choice-diet']:checked").val();
+    console.log(radioValue);
+    if (radioValue === "true") {
+      dietaryRestriction = true;
+      generateDietaryRestrictions()
+    } else {
+      dietaryRestriction = false;
+      $("#dietary-form").empty();
+    }
+  })
 
   console.log("js running");
-
-  var apiKey = "7e843602b804ea7449775e2616d01fe2";
-
-  var recipeAPIKey = "3bf128271c09f258d82a4a064242f753";
-  var recipeID = "d25a4b08";
 
   // function to make slider of prep time work
   const $valueSpan = $(".valueSpan2");
@@ -76,11 +71,6 @@ $(document).ready(function () {
   FormStuff.init();
   console.log("restrictions dropdown loaded");
 
-
-  //   <div class="form-check">
-  //     <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
-  //  <label class="form-check-label" for="exampleRadios1">G</label>
-  //      </div>
 
     
   function generateRatings (){
@@ -147,14 +137,13 @@ $(document).ready(function () {
     
     for (var i = 0; i< restrictions.length; i++){
       var divider =   "<div class=\"form-check\">";
-      divider +=      `<input class="form-check-input" type="checkbox" name="restrictionInput" id="${restrictions[i]}Rating" value="${restrictions[i]}">`;
+      divider +=      `<input class="form-check-input" type="checkbox" class="reveal-if-active" name="restrictionInput" id="${restrictions[i]}Rating" value="${restrictions[i]}">`;
       divider +=      `<label class="form-check-label" for="${restrictions[i]}Rating">${restrictions[i]}</label>`;
       divider +=      `</div>`;
 
       $("#dietary-form").append(divider);
     }
   }
-generateDietaryRestrictions();
 
   
 var cuisines = ["American", "Asian", "French", "Indian",
@@ -208,11 +197,8 @@ var cuisines = ["American", "Asian", "French", "Indian",
     else if ($('#PG-13Rating').is(':checked')) {
       ratingsToBeIncluded = "PG-13";
     }
-    else if ($('#RRating').is(':checked')) {
-      ratingsToBeIncluded = "R";
-    }
     else {
-
+      ratingsToBeIncluded = "R";
     }
     console.log(ratingsToBeIncluded);
   }
@@ -225,7 +211,6 @@ var cuisines = ["American", "Asian", "French", "Indian",
     }
     if ($('#animation').is(':checked')) {
       preferredGenre.push("animation");
-      //preferredGenre.push($(this).val());
     }
     if ($('#comedy').is(':checked')) {
       preferredGenre.push("comedy");
@@ -351,8 +336,7 @@ var cuisines = ["American", "Asian", "French", "Indian",
   }
 
   function findMovies() {
-    // var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=" + preferredGenre + "&certification_country=US&certification=" + ratingsToBeIncluded + "&api_key=" + apiKey;
-    var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=35&certification_country=US&certification=R&api_key=" + apiKey;
+    var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=" + preferredGenre + "&certification_country=US&certification=" + ratingsToBeIncluded + "&api_key=" + movieAPIkey;
     $.ajax({
       url: queryURL,
       method: "GET"
@@ -380,6 +364,7 @@ var cuisines = ["American", "Asian", "French", "Indian",
       // 1st iteration should add '&health=peanut-free
       queryFragment += `&${param}=${value}`;
     })
+    console.log(queryFragment);
     return queryFragment;
   }
 
