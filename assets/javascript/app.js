@@ -1,18 +1,43 @@
 $(document).ready(function () {
 
-var containerOne = $(".container-one")
-var containerTwo = $(".container-two");
-containerTwo.hide();
+   // universal variables we will be using 
+   var ratingsToBeIncluded;
+   var preferredGenre = [];
+   var dietaryRestrictions = [];
+   var maxPrepTime = 0;
+   var preferredCuisine = [];
+   var ingredient = "";
+   var dietaryRestriction = false;
+   var health = ["dairy-free", "gluten-free", "peanut-free", "soy-free", "tree-nut-free", "vegan", "vegetarian"];
 
-$(".btn-success").on("click", function(){
-containerOne.hide();
-containerTwo.show();
-});
 
-$("#startButton").on("click", function(){
-  containerOne.show();
+  var containerOne = $(".container-one")
+  var containerTwo = $(".container-two");
   containerTwo.hide();
+
+  $(".btn-success").on("click", function () {
+    containerOne.hide();
+    containerTwo.show();
   });
+
+  $("#startButton").on("click", function () {
+    containerOne.show();
+    containerTwo.hide();
+  });
+
+  // dietary Restriction form call listener
+  // $(".dietRestriction").on("click", function (event){
+    
+  //   var radioValue = $("input[name='choice-diet']:checked").val();
+  //   console.log(radioValue);
+  //   if (radioValue === "true") {
+  //     dietaryRestriction = true;
+  //     generateDietaryRestrictions()
+  //   } else {
+  //     dietaryRestriction = false;
+  //     $("#dietary-form").empty();
+  //   }
+  // })
 
   console.log("js running");
 
@@ -52,30 +77,50 @@ $("#startButton").on("click", function(){
   console.log("restrictions dropdown loaded");
 
 
-//   <div class="form-check">
-//     <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
-//  <label class="form-check-label" for="exampleRadios1">G</label>
-//      </div>
+  //   <div class="form-check">
+  //     <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
+  //  <label class="form-check-label" for="exampleRadios1">G</label>
+  //      </div>
 
-  function generateRatings (){
-    var certification = ["G","PG", "PG-13","R", "NC-17"];
-    
-    for (var i = 0; i< certification.length; i++){
-      var divider =   "<div class=\"form-check\">";
-      divider +=      `<input class="form-check-input" type="radio" name="ratingInput" id="${certification[i]}Rating" value="${certification[i]}"`;
-      if (i===0){ divider += ` checked`; }
-      divider +=      `>`;
-      divider +=      `<label class="form-check-label" for="${certification[i]}Rating">${certification[i]}</label>`;
-      divider +=      `</div>`;
+  function generateRatings() {
+    var certification = ["G", "PG", "PG-13", "R", "NC-17"];
+
+    for (var i = 0; i < certification.length; i++) {
+      var divider = "<div class=\"form-check\">";
+      divider += `<input class="form-check-input" type="radio" name="ratingInput" id="${certification[i]}Rating" value="${certification[i]}"`;
+      if (i === 0) { divider += ` checked`; }
+      divider += `>`;
+      divider += `<label class="form-check-label" for="${certification[i]}Rating">${certification[i]}</label>`;
+      divider += `</div>`;
 
       $("#rating-input").append(divider);
     }
   }
   generateRatings();
 
-  function generateGenres(){}
+  function generateGenres() { }
 
-  function generateDietaryRestrictions(){}
+  function generateDietaryRestrictions() {
+    // if (!dietaryRestriction) {
+    //   return;
+    // }
+  
+  
+    // var form = $("#dietary-form")
+    // form.empty();
+    // form.append("<h2>Which ones?</h2>");
+    // for (var i = 0; i < health.length; i++) {
+    //   var divider = "<div class=\"form-check\">";
+    //   divider += `<input class="form-check-input" type="radio" name="choice-diet-${i}" id="${health[i]}" value="${health[i]}"`;
+    //   if (i === 0) { divider += ` checked`; }
+    //   divider += `>`;
+    //   divider += `<label class="form-check-label" for="${health[i]}">${health[i]}</label>`;
+    //   divider += `</div>`;
+
+    //   form.append(divider);
+    // }
+  }
+  generateDietaryRestrictions();
 
 
   var genre;
@@ -104,68 +149,12 @@ $("#startButton").on("click", function(){
   }
 
 
-  // universal variables we will be using 
-  var ratingsToBeIncluded;
-  var preferredGenre = [];
-  var dietaryRestrictions = [];
-  var maxPrepTime = 0;
-  var preferredCuisine = [];
-  var ingredient = "";
-  var healthOptions = [
-    {
-      api: "Dairy",
-      user: "dairy-free"
-    },
-    {
-      api: "Kosher",
-      user: "kosher"
-    },
-    {
-      api: "Gluten",
-      user: "gluten-free"
-    },
-    {
-      api: "Peanuts",
-      user: "peanut-free"
-    },
-    {
-      api: "Shellfish",
-      user: "shellfish-free"
-    },
-    {
-      api: "Soy",
-      user: "soy-free"
-    },
-    {
-      api: "Tree Nuts",
-      user: "tree-nut-free"
-    },
-    {
-      api: "Sugar-conscious",
-      user: "sugar-conscious"
-    },
-    {
-      api: "Vegan",
-      user: "vegan"
-    },
-    {
-      api: "Vegetarian",
-      user: "vegetarian"
-    }
-  ]
-
-  $("input[type='radio'], input[type='checkbox]").on("change", function () {
-    healthOptions.forEach(option=>{
-     const newButton= $(`<input type='checkbox' name=${option.user}/><label for=${option.user}>${option.user}</label>`)
-     $("dietary-form").append(newButton)
-  })
-}); 
 
 
   $("#submitButton").on("click", function () {
     console.log("on click function");
     //ratings
-   // pushRatings();
+    // pushRatings();
     //genres
     pushMovieGenres();
     //restrictions
@@ -318,7 +307,7 @@ $("#startButton").on("click", function(){
   }
 
 
-  function initializeCarousel(){
+  function initializeCarousel() {
     var swiper = new Swiper('.swiper-container', {
       effect: 'coverflow',
       grabCursor: true,
@@ -329,7 +318,7 @@ $("#startButton").on("click", function(){
         stretch: 0,
         depth: 100,
         modifier: 1,
-        slideShadows : true,
+        slideShadows: true,
       },
       pagination: {
         el: '.swiper-pagination',
@@ -353,61 +342,87 @@ $("#startButton").on("click", function(){
         console.log(response);
         console.log(results[i].poster_path);
       }
-     
+
       initializeCarousel();
     });
   }
 
+  // TODO: allow values to be string OR array
+  function buildParameter(param, values) {
+    var queryFragment = "";
+    // each loop, append a fragment of the fragment
+    values.forEach(function (value) {
+      // e.g health, [peanut-free, tree-nut-free]
+      // 1st iteration should add '&health=peanut-free
+      queryFragment += `&${param}=${value}`;
+    })
+    return queryFragment;
+  }
+
   function findRecipes() {
-    ingredient = "chicken"
-    preferredCuisine =//"&cuisineType=Chinese";
-    dietaryRestrictions = "&health=peanut-free&health=tree-nut-free";
-    maxPrepTime = "120";
+    // var ingredient = "chicken"
+    // var preferredCuisine = ["chinese"];
+    // var dietaryRestrictions = ["tree-nut-free", "peanut-free"];
+    // var maxPrepTime = "120";
 
 
-    //TODO make enumerable function for health&cuisineType
-    var baseURL = `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${ingredient}${dietaryRestrictions}&time=${maxPrepTime}&app_id=${recipeID}&app_key=${recipeAPIKey}`;
+    // given a list of [{parameter, values}]
+    // iterate over the list, appending to baseURL
+    // q=${ingredient}${buildParameter("health",dietaryRestrictions)}&time=${maxPrepTime}
+
+    // iterate over dietaryRestrictions available with true or false
+    var urlComponents = [
+      { param: "q", value: [ingredient] },
+      { param: "health", value: dietaryRestrictions },
+      { param: "cuisineType", value: preferredCuisine },
+      { param: "time", value: [maxPrepTime] }
+    ]
+    var baseURL = `https://api.edamam.com/search?app_id=${recipeID}&app_key=${recipeAPIKey}`;
+    urlComponents.forEach(function (component) {
+      console.log(component);
+      baseURL += buildParameter(component.param, component.value);
+    })
 
     console.log(baseURL);
     $.ajax({
       url: baseURL,
-      method: "GET"
+      method: "GET",
+      dataType: "json"
     }).then(function (response) {
       var results = response.hits;
       console.log(results);
 
-      for (var i = 0; i < results.length; i++) {
+      var resultRow = $("<tr>");
+
+      for (var i = 0; i < 3; i++) {
         var recipeTitle = results[i].recipe.label;
         console.log(recipeTitle);
         var recipeImg = results[i].recipe.image;
-        
 
-        var newDiv = $("<div>");
-        newDiv.addClass("recipes");
+        var rowInfo = $("<tr>");
+        var td = $("<td>");
+
+        // var newDiv = $("<div>");
+        // newDiv.addClass("recipes");
         var image = $("<img>").addClass("recipe-images");
-        var h1 = $("<h1>").text(recipeTitle);
         var link = $("<a>").attr("href", results[i].recipe.url);
         link.text(results[i].recipe.url);
-        console.log(link);
+        // console.log(link);
 
-        newDiv.append(h1, image, link);
+        // newDiv.append(h1, image, link);
         image.attr("src", recipeImg);
 
-        $("#results").append(newDiv);
+        // add CSS styling
+        resultRow.append('<td class="recipe"><h1>' + recipeTitle + '</h1>' + '<img src=' + recipeImg + '><div><a href="' + results[i].recipe.url + '">Click here for recipe!</a></div></td>');
 
-        
+
 
       }
+
+      $("#foods").append(resultRow);
     })
 
-    // Variables for storing user selections
-    // var dietPreference = "&health=" + $("#diet").val();
-    // console.log(dietPreference);
-    // var cuisineType = "&cuisineType=" + $("#cuisine").val();
-    // console.log(cuisineType);
-    // var ingredient = "q=" + $("#ingredient").val().trim();
 
-    
   }
 
 
