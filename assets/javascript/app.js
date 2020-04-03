@@ -82,71 +82,97 @@ $(document).ready(function () {
   //  <label class="form-check-label" for="exampleRadios1">G</label>
   //      </div>
 
-  function generateRatings() {
-    var certification = ["G", "PG", "PG-13", "R", "NC-17"];
-
-    for (var i = 0; i < certification.length; i++) {
-      var divider = "<div class=\"form-check\">";
-      divider += `<input class="form-check-input" type="radio" name="ratingInput" id="${certification[i]}Rating" value="${certification[i]}"`;
-      if (i === 0) { divider += ` checked`; }
-      divider += `>`;
-      divider += `<label class="form-check-label" for="${certification[i]}Rating">${certification[i]}</label>`;
-      divider += `</div>`;
+    
+  function generateRatings (){
+    var certification = ["G","PG", "PG-13","R", "NC-17"];
+    
+    for (var i = 0; i< certification.length; i++){
+      var divider =   "<div class=\"form-check\">";
+      divider +=      `<input class="form-check-input" type="radio" name="ratingInput" id="${certification[i]}Rating" value="${certification[i]}"`;
+      if (i===0){ divider += ` checked`; }
+      divider +=      `>`;
+      divider +=      `<label class="form-check-label" for="${certification[i]}Rating">${certification[i]}</label>`;
+      divider +=      `</div>`;
 
       $("#rating-input").append(divider);
     }
   }
   generateRatings();
 
-  function generateGenres() { }
+  function generateGenres(){
+    var genres = {
+      action: 28,
+      adventure: 12,
+      animation: 16,
+      comedy: 35,
+      crime: 80,
+      documentary: 99,
+      drama: 18,
+      family: 10751,
+      fantasy: 14,
+      history: 36,
+      horror: 27,
+      music: 10402,
+      mystery: 9648,
+      romance: 10749,
+      scienceFiction: 878,
+      tvMovie: 10770,
+      thriller: 53,
+      war: 10752,
+      western: 37,
+    };
+    var genreNames =["action","adventure", "animation", "comedy", "crime", "documentary", 
+                      "family", "horror", "mystery", "romance", "Science Fiction",
+                      "thriller", "war"]
+    var associatedIDs = [28, 12, 16, 35, 80, 99, 10751, 27, 
+                          9648, 10749, 878, 53, 10752]
+    console.log(genres.action);
+    
+    for (var i = 0; i< genreNames.length; i++){
+      var divider =   "<div class=\"form-check\">";
+      divider +=      `<input class="form-check-input" type="checkbox" name="genreInput" id="${genreNames[i]}Rating" value="${associatedIDs[i]}"`;
+      divider +=      `>`;
+      divider +=      `<label class="form-check-label" for="${associatedIDs[i]}Rating">${genreNames[i]}</label>`;
+      divider +=      `</div>`;
 
-  function generateDietaryRestrictions() {
-    // if (!dietaryRestriction) {
-    //   return;
-    // }
-  
-  
-    // var form = $("#dietary-form")
-    // form.empty();
-    // form.append("<h2>Which ones?</h2>");
-    // for (var i = 0; i < health.length; i++) {
-    //   var divider = "<div class=\"form-check\">";
-    //   divider += `<input class="form-check-input" type="radio" name="choice-diet-${i}" id="${health[i]}" value="${health[i]}"`;
-    //   if (i === 0) { divider += ` checked`; }
-    //   divider += `>`;
-    //   divider += `<label class="form-check-label" for="${health[i]}">${health[i]}</label>`;
-    //   divider += `</div>`;
-
-    //   form.append(divider);
-    // }
+      $("#genre-input").append(divider);
+    }
   }
-  generateDietaryRestrictions();
+  generateGenres();
 
 
-  var genre;
-  var poster;
-  var movie;
-  var genres = {
-    action: 28,
-    adventure: 12,
-    animation: 16,
-    comedy: 35,
-    crime: 80,
-    documentary: 99,
-    drama: 18,
-    family: 10751,
-    fantasy: 14,
-    history: 36,
-    horror: 27,
-    music: 10402,
-    mystery: 9648,
-    romance: 10749,
-    scienceFiction: 878,
-    tvMovie: 10770,
-    thriller: 53,
-    war: 10752,
-    western: 37,
+  var restrictions = ["vegan", "vegetarian", "dairy-free", "gluten-free", "peanut-free", "tree-nut-free", "soy-free"];
+
+  function generateDietaryRestrictions(){
+    
+    for (var i = 0; i< restrictions.length; i++){
+      var divider =   "<div class=\"form-check\">";
+      divider +=      `<input class="form-check-input" type="checkbox" name="restrictionInput" id="${restrictions[i]}Rating" value="${restrictions[i]}">`;
+      divider +=      `<label class="form-check-label" for="${restrictions[i]}Rating">${restrictions[i]}</label>`;
+      divider +=      `</div>`;
+
+      $("#dietary-form").append(divider);
+    }
   }
+generateDietaryRestrictions();
+
+  
+var cuisines = ["American", "Asian", "French", "Indian",
+                    "Italian", "Mediterranean", "Mexican", "Middle Eastern"];
+  function generateCuisines(){
+    for (var i = 0; i< cuisines.length; i++){
+      var divider =   "<div class=\"form-check\">";
+      divider +=      `<input class="form-check-input" type="checkbox" name="restrictionInput" id="${cuisines[i]}Rating" value="${cuisines[i]}">`;
+      divider +=      `<label class="form-check-label" for="${cuisines[i]}Rating">${cuisines[i]}</label>`;
+      divider +=      `</div>`;
+
+      $("#cuisine-form").append(divider);
+    }
+    
+  }
+
+  generateCuisines();
+
 
 
 
@@ -154,7 +180,7 @@ $(document).ready(function () {
   $("#submitButton").on("click", function () {
     console.log("on click function");
     //ratings
-    // pushRatings();
+    pushRatings();
     //genres
     pushMovieGenres();
     //restrictions
@@ -171,7 +197,7 @@ $(document).ready(function () {
     findRecipes()
   });
 
-  /*function pushRatings() {
+  function pushRatings() {
     console.log("pushRatings Function");
     if ($('#GRating').is(':checked')) {
       ratingsToBeIncluded = "G";
@@ -189,7 +215,7 @@ $(document).ready(function () {
 
     }
     console.log(ratingsToBeIncluded);
-  }*/
+  }
 
   function pushMovieGenres() {
     console.log("pushMovies Function");
@@ -235,8 +261,7 @@ $(document).ready(function () {
   }
 
   function pushRestrictions() {
-    var restrictions = ["vegan", "vegetarian", "dairy-free", "gluten-free", "peanut-free", "tree-nut-free", "soy-free"];
-
+  
     if ($('#dietaryRestrictionsNo').is(':checked')) { }
     else {
       if ($('#dietaryRestrictionsYes').is(':checked') && $('#vegan').is(':checked')) {
@@ -245,26 +270,25 @@ $(document).ready(function () {
       if ($('#dietaryRestrictionsYes').is(':checked') && $('#vegetarian').is(':checked')) {
         dietaryRestrictions.push(restrictions[1]);
       }
-      if ($('#dietaryRestrictionsYes').is(':checked') && $('#dairyFree').is(':checked')) {
+      if ($('#dietaryRestrictionsYes').is(':checked') && $('#dairy-free').is(':checked')) {
         dietaryRestrictions.push(restrictions[2]);
       }
-      if ($('#dietaryRestrictionsYes').is(':checked') && $('#glutenFree').is(':checked')) {
+      if ($('#dietaryRestrictionsYes').is(':checked') && $('#gluten-free').is(':checked')) {
         dietaryRestrictions.push(restrictions[3]);
       }
-      if ($('#dietaryRestrictionsYes').is(':checked') && $('#peanutFree').is(':checked')) {
+      if ($('#dietaryRestrictionsYes').is(':checked') && $('#peanut-free').is(':checked')) {
         dietaryRestrictions.push(restrictions[4]);
       }
-      if ($('#dietaryRestrictionsYes').is(':checked') && $('#treenutFree').is(':checked')) {
+      if ($('#dietaryRestrictionsYes').is(':checked') && $('#tree-nut-free').is(':checked')) {
         dietaryRestrictions.push(restrictions[5]);
       }
-      if ($('#dietaryRestrictionsYes').is(':checked') && $('#soyFree').is(':checked')) {
+      if ($('#dietaryRestrictionsYes').is(':checked') && $('#soy-free').is(':checked')) {
         dietaryRestrictions.push(restrictions[6]);
       }
     }
 
     console.log(dietaryRestrictions);
   }
-
 
   function pushPrepTime() {
     var time = $('#timeRange').val();
