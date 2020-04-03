@@ -422,7 +422,7 @@ var cuisines = ["American", "Asian", "French", "Indian",
         image.attr("src", recipeImg);
 
         // add CSS styling
-        resultRow.append('<td class="recipe"><h1>' + recipeTitle + '</h1>' + '<img src=' + recipeImg + '><div><a href="' + results[i].recipe.url + '">Click here for recipe!</a></div></td>');
+        resultRow.append('<td class="recipe"><h1>' + recipeTitle + '</h1>' + '<img src=' + recipeImg + '><div><a href="' + results[i].recipe.url + '"target=_blank>Click here for recipe!</a></div></td>');
 
 
 
