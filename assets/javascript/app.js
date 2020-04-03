@@ -41,11 +41,6 @@ $(document).ready(function () {
 
   console.log("js running");
 
-  var apiKey = "7e843602b804ea7449775e2616d01fe2";
-
-  var recipeAPIKey = "3bf128271c09f258d82a4a064242f753";
-  var recipeID = "d25a4b08";
-
   // function to make slider of prep time work
   const $valueSpan = $(".valueSpan2");
   const $value = $("#timeRange");
@@ -76,11 +71,6 @@ $(document).ready(function () {
   FormStuff.init();
   console.log("restrictions dropdown loaded");
 
-
-  //   <div class="form-check">
-  //     <input class="form-check-input" type="radio" name="exampleRadios" id="GRating" value="G" checked>
-  //  <label class="form-check-label" for="exampleRadios1">G</label>
-  //      </div>
 
     
   function generateRatings (){
@@ -221,7 +211,6 @@ var cuisines = ["American", "Asian", "French", "Indian",
     }
     if ($('#animation').is(':checked')) {
       preferredGenre.push("animation");
-      //preferredGenre.push($(this).val());
     }
     if ($('#comedy').is(':checked')) {
       preferredGenre.push("comedy");
