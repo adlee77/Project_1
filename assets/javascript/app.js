@@ -184,15 +184,16 @@ var genres = [
   function generateGenres() {
     for (var i =0; i < genres.length; i++){
       var divider = "<div class=\"form-check\">";
-      divider += `<input class="form-check-input" type="checkbox" name="genreInput" id="${genres[i].value}" value="${genres[i].label}"`;
+      divider += `<input class="form-check-input" type="checkbox" name="genreInput" id="${genres[i].label}" value="${genres[i].value}"`;
       divider += `>`;
-      divider += `<label class="form-check-label" for="${genres[i].value}">${genres[i].label}</label>`;
+      divider += `<label class="form-check-label" for="${genres[i].label}">${genres[i].label}</label>`;
       divider += `</div>`;
       $("#genre-input").append(divider);
       }
     }
     generateGenres();
-  function findMovies() {
+  
+    function findMovies() {
     function getRating() {
       if ($('#GRating').is(':checked')) {
         return "G";
@@ -207,18 +208,23 @@ var genres = [
         return "R";
       }
     }
+    
     var selectedGenres = [];
+
     function getMovieGenres(){
       genres.forEach(function(genres){
-        var checkbox = $(`#${genres.value}`)
+        var checkbox = $(`#${genres.label}`)
         if (checkbox.is(':checked')){
           selectedGenres.push(checkbox.val())
+          console.log(selectedGenres);
         }
       })
-      return getMovieGenres;
+      return selectedGenres;
     }
+
     getMovieGenres();
     var queryURL = "https://api.themoviedb.org/3/discover/movie?with_genres=" + selectedGenres + "&certification_country=US&certification=" + getRating() + "&api_key=" + movieAPIkey;
+    console.log(queryURL)
     $.ajax({
       url: queryURL,
       method: "GET"
@@ -227,6 +233,7 @@ var genres = [
       var results = response.results;
       for (var i = 0; i < 5; i++) {
         var posterImage = $("<div>").addClass("swiper-slide");
+        console.log("response.results[i] is " + response.results[i])
         posterImage.attr("style", `background-image:url(${"http://image.tmdb.org/t/p/w500" + response.results[i].poster_path})`);
         $("#posterContainer").append(posterImage);
       }
