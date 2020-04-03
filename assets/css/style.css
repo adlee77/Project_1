@@ -14,7 +14,7 @@
   left: 15%;
 }
 
-h2, h3, #time-range, #extra, .diet, .valueSpan2, #food {
+h2, h3, #time-range, #extra, .diet, .valueSpan2, #food, #recipes {
   color: white;
   font-family: Geneva, Tahoma, Verdana, sans-serif;
 }
@@ -49,3 +49,11 @@ p {
   width: 25%;
   left: 38%;
  }
+ .form-check-label {
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  color: rgb(48, 47, 52);
+ }
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
