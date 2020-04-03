@@ -1,5 +1,5 @@
 .jumbotron {
-  background-color: #5D5C61;
+  background-image: linear-gradient(to bottom right,#3f72af,  #112d4e);
   color: white;
   margin-bottom: 0px;
   border-bottom: solid;
@@ -10,20 +10,20 @@
 }
 .container-one {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 15%;
 }
 
-h2, h3, #time-range, #extra, .diet, .valueSpan2, #food {
-  color: white;
+h2, h3, #time-range, #extra, .diet, .valueSpan2, #food, #recipes {
+  color: #112d4e;
   font-family: Geneva, Tahoma, Verdana, sans-serif;
 }
 p {
   font-family: Geneva, Tahoma, Verdana, sans-serif;
-  color: white;
+  color: #112d4e;
 }
 .btn {
-  background-color: #5D5C61;
+  background-color: #112d4e;
   border-color: #5D5C61;
   font-family: Geneva, Tahoma, Verdana, sans-serif;
 }
@@ -36,7 +36,7 @@ p {
   border-color:  #5D5C61;
 }
 .main-container {
-  background-image: linear-gradient(to bottom right, rgb(115, 146, 174), #557A95, #85aebd);
+  background-image: linear-gradient(to bottom, #dbe2ef, #dbe2ef, #5f8cc4);
   min-height: 100vh; /* will cover the 100% of viewport */
   overflow: hidden;
   display: block;
@@ -49,3 +49,20 @@ p {
   width: 25%;
   left: 38%;
  }
+ .form-check-label {
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  color: #112d4e;
+ }
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+#edamam-badge {
+  position: relative;
+  left: 25%;
+}
+@media only screen and (max-width: 768px) {
+.scroll {
+  min-height: 800px;
+  overflow: scroll;
+}}
