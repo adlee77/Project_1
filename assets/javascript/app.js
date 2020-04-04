@@ -152,7 +152,7 @@ $(document).ready(function () {
         var link = $("<a>").attr("href", results[i].recipe.url);
         link.text(results[i].recipe.url);
         image.attr("src", recipeImg);
-        resultRow.append('<td class="recipe"><p>' + recipeTitle + '</p>' + '<img src=' + recipeImg + '><div><a id="recipes" href="' + results[i].recipe.url + '"target=_blank>Click here for recipe!</a></div></td>');
+        resultRow.append('<td class="recipe"><h3>' + recipeTitle + '</h3>' + '<img src=' + recipeImg + '><div><a id="recipes" href="' + results[i].recipe.url + '"target=_blank>Click here for recipe!</a></div></td>');
       }
       $("#foods").append(resultRow);
     })
