@@ -17,6 +17,7 @@
 h2, h3, #time-range, #extra, .diet, .valueSpan2, #food, #recipes {
   color: #112d4e;
   font-family: Geneva, Tahoma, Verdana, sans-serif;
+  text-decoration: none;
 }
 p {
   font-family: Geneva, Tahoma, Verdana, sans-serif;
@@ -45,10 +46,15 @@ p {
  }
  footer {
   position: absolute;
+  left: 0;
   bottom: 0;
-  width: 25%;
-  left: 38%;
- }
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+#movieDB {
+  width: 30%;
+}
  .form-check-label {
   font-family: Geneva, Tahoma, Verdana, sans-serif;
   color: #112d4e;
@@ -59,10 +65,24 @@ table {
 }
 #edamam-badge {
   position: relative;
-  left: 25%;
+  text-align: center;
 }
 @media only screen and (max-width: 768px) {
-.scroll {
-  min-height: 800px;
-  overflow: scroll;
-}}
+  .main-container {
+    height: 1300px;
+  }
+  .container-one {
+    position: absolute;
+    top: 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+.main-container {
+  height: 1450px;
+}
+.container-one {
+  position: absolute;
+  top: 0;
+  right: 15%;
+}
+}
