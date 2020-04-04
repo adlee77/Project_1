@@ -11,6 +11,8 @@ $(document).ready(function () {
     containerOne.show();
     containerTwo.hide();
     swiper.destroy(true, true);
+    $('.form-check-input').prop("checked", false);
+    $('#genre-rating').prop("checked", true);
   });
   //RECIPE
   //dietary Restriction form call listener
@@ -162,7 +164,7 @@ $(document).ready(function () {
     var certification = ["G", "PG", "PG-13", "R"];
     for (var i = 0; i < certification.length; i++) {
       var divider = "<div class=\"form-check\">";
-      divider += `<input class="form-check-input" type="radio" name="ratingInput" id="${certification[i]}Rating" value="${certification[i]}"`;
+      divider += `<input class="form-check-input" id="genre-rating" type="radio" name="ratingInput" id="${certification[i]}Rating" value="${certification[i]}"`;
       if (i === 0) { divider += ` checked`; }
       divider += `>`;
       divider += `<label class="form-check-label" for="${certification[i]}Rating">${certification[i]}</label>`;
