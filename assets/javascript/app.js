@@ -1,9 +1,7 @@
 $(document).ready(function () {
-  const movieAPIkey = process.env.REACT_APP_APIKey
-  const recipeAPIkey = process.env.REACT_APP_APISecret
-  var recipeID= "d25a4b08";
-  var containerOne = $(".container-one")
+  var containerOne = $(".container-one");
   var containerTwo = $(".container-two");
+  var swiper;
   containerTwo.hide();
   $(".btn-success").on("click", function () {
     containerOne.hide();
@@ -12,6 +10,7 @@ $(document).ready(function () {
   $("#startButton").on("click", function () {
     containerOne.show();
     containerTwo.hide();
+    swiper.destroy(true, true);
   });
   //RECIPE
   //dietary Restriction form call listener
@@ -54,6 +53,7 @@ $(document).ready(function () {
     { label: "Soy Free", value: "soy-free" }
   ]
   function generateDietaryRestrictions() {
+    $("#dietary-form").empty();
     for (var i = 0; i < restrictions.length; i++) {
       var divider = "<div class=\"form-check\">";
       divider += `<input class="form-check-input" type="checkbox" class="reveal-if-active" name="restrictionInput" id="${restrictions[i].value}" value="${restrictions[i].value}">`;
@@ -230,6 +230,7 @@ var genres = [
       $("#posterContainer").empty();
       for (var i = 0; i < 5; i++) {
         var posterImage = $("<div>").addClass("swiper-slide");
+        console.log(response.results[i])
         posterImage.attr("style", `background-image:url(${"http://image.tmdb.org/t/p/w500" + response.results[i].poster_path})`);
         $("#posterContainer").append(posterImage);
       }
@@ -237,7 +238,7 @@ var genres = [
     });
   }
   function initializeCarousel() {
-    var swiper = new Swiper('.swiper-container', {
+      swiper = new Swiper('.swiper-container', {
       effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
