@@ -76,7 +76,7 @@ td.recipe img {
 
 @media only screen and (max-width: 1200px) {
   .main-container {
-    min-height: 1300px;
+    min-height: 1500px;
   }
   .container-one {
     position: absolute;
@@ -113,7 +113,7 @@ td.recipe img {
 }
 @media only screen and (max-width: 375px) {
 .main-container {
-  height: 1450px;
+  height: 2100px;
 }
 .container-one {
   position: absolute;
