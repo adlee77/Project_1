@@ -9,9 +9,7 @@
   background-color: transparent;
 }
 .container-one {
-  position: absolute;
-  top: 10%;
-  left: 15%;
+  padding: 50px;
 }
 
 h2, h3, #time-range, #extra, .diet, .valueSpan2, #food, #recipes {
@@ -67,14 +65,51 @@ table {
   position: relative;
   text-align: center;
 }
-@media only screen and (max-width: 768px) {
+td.recipe {
+  width: 30%;
+}
+
+td.recipe img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 1200px) {
   .main-container {
-    height: 1300px;
+    min-height: 1300px;
   }
   .container-one {
     position: absolute;
     top: 0;
   }
+  /* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	td.recipe { 
+		/* Behave  like a "row" */
+		border: none;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+	}
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
 }
 @media only screen and (max-width: 375px) {
 .main-container {

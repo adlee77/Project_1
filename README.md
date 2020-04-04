@@ -21,6 +21,8 @@ Challenges
 1.  GitHub and managing updates
 2.  Swiper.js
 3.  Incorporating the back-end into the front-end
+4.  Stopping the carousel from breaking second time through
+
 
 Next Release 
 1.  Surprise Me!: give the option to the user to randomize movie and/or food options returned.
