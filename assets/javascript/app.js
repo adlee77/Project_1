@@ -121,6 +121,7 @@ $(document).ready(function () {
   }
   function buildParameter(param, values) {
     var queryFragment = "";
+    console.log(values)
     values.forEach(function (value) {
       value = encodeURIComponent(value);
       queryFragment += `&${param}=${value}`;
@@ -135,6 +136,7 @@ $(document).ready(function () {
       { param: "time", value: [getPrepTime()] }
     ]
     var baseURL = `https://api.edamam.com/search?app_id=${recipeID}&app_key=${recipeAPIKey}`;
+    console.log(urlComponents)
     urlComponents.forEach(function (component) {
       baseURL += buildParameter(component.param, component.value);
     })
@@ -233,7 +235,6 @@ var genres = [
       $("#posterContainer").empty();
       for (var i = 0; i < 5; i++) {
         var posterImage = $("<div>").addClass("swiper-slide");
-        console.log(response.results[i])
         posterImage.attr("style", `background-image:url(${"http://image.tmdb.org/t/p/w500" + response.results[i].poster_path})`);
         $("#posterContainer").append(posterImage);
       }
